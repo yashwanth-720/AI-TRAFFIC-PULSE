@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traffic Detection Test</title>
+</head>
+<body>
+    <h1>Traffic Detection API Test</h1>
+    <input type="file" id="imageInput" accept="image/*">
+    <button onclick="uploadImage()">Detect Vehicles</button>
+    <div id="result"></div>
+    
+    <script>
+        async function uploadImage() {
+            const input = document.getElementById('imageInput');
+            const file = input.files[0];
+            if (!file) return;
+            
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            const response = await fetch('http://localhost:8081/detect', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const result = await response.json();
+            document.getElementById('result').innerHTML = `
+                <h3>Vehicles detected: ${result.vehicle_count}</h3>
+                <img src="${result.processed_image}" style="max-width: 500px;">
+            `;
+        }
+    </script>
+</body>
+</html>
