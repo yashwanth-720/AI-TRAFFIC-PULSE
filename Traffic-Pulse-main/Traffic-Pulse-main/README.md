@@ -38,34 +38,59 @@ Mohammed Hassan(Teammate 4)
 
 -->How to run:
 
-A. Run the Streamlit Application
+1. Navigate to Project Directory
+cd "path of the file
+"
 
-pip install streamlit==1.30.0 opencv-python==4.8.1.78 ultralytics==8.0.20 numpy==1.25.0 pandas==2.1.0 plotly==5.15.0
+Copy
+bash
+2. Create Virtual Environment (Recommended)
+python -m venv venv
+venv\Scripts\activate
+
+Copy
+3. Install Dependencies
+pip install --upgrade pip
+pip install -r Requirements.txt
+
+Copy
+bash
+4. Run the Project (Choose One Option)
+Option A: Quick Start with Batch File
+
+start_servers.bat
+
+Copy
+bash
+Option B: Manual Streamlit App
 
 streamlit run streamlit_app.py
 
-B. Run the Command-Line Scripts
+Copy
+bash
+Option C: Ultimate Dashboard
 
---For vehicle tracking: python main.py
+streamlit run ultimate_traffic_dashboard.py --server.port=8501
 
---For speed estimation: python speed.py
+Copy
+bash
+Option D: Command Line Vehicle Tracking
 
-The speed.py script will process the video and save the output to output.mp4 and a log file to static/vehicle_log.csv.
+python main.py
 
-( Optional: Use a virtual environment
+Copy
+bash
+5. Access the Application
+Ultimate Dashboard: http://localhost:8501
 
-This is cleaner and avoids most Windows permission issues)
+API Server: http://localhost:8082
 
-python -m venv venv venv\Scripts\activate pip install --upgrade pip pip install -r requirements.txt
+API Documentation: http://localhost:8082/docs
 
-📈 Future Scope Predictive Analysis: Implement a machine learning model to predict future traffic congestion based on historical data.
+6. For Development/Testing
+python api_server.py  # Start API server separately
 
-Mobile Application: Develop a user-friendly mobile app to provide real-time traffic updates and route recommendations.
-
-Extended Vehicle Classification: Broaden the classification model to identify a wider range of vehicle types (e.g., buses, taxis, emergency vehicles).
-
-📄 License This project is licensed under the MIT License - see the LICENSE.md file for details.
-
+Copy
 
 
 
